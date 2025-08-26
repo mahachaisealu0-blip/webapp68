@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Image Overlay Text</title>
+<style>
+  .card {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.05);
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.45) 60%, rgba(0,0,0,.6));
+  }
+
+  .text {
+    position: absolute;
+    inset: auto 0 12px 0;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+  <figure class="card">
+    <img src="Lotus_flower.jpg" alt="Decorative background" />
+    <figcaption class="text">Hello, World</figcaption>
+  </figure>
+</body>
+</html>

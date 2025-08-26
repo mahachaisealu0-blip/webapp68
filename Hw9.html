@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fade Siblings on Hover</title>
+<style>
+  body { font-family: system-ui, sans-serif; }
+  .cases {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+  }
+  .case {
+    flex: 1 1 0;
+    min-height: 120px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #eeeeee;
+    font-weight: 800;
+    transition: opacity .2s ease, transform .2s ease, background-color .2s ease;
+    cursor: pointer;
+  }
+
+  .cases:hover .case { opacity: .35; }
+  .case:hover { opacity: 1; transform: translateY(-2px); background: #e0f2f1; }
+</style>
+</head>
+<body>
+  <div class="cases">
+    <div class="case">Case 1</div>
+    <div class="case">Case 2</div>
+    <div class="case">Case 3</div>
+  </div>
+</body>
+</html>

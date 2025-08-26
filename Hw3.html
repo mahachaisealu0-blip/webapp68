@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sticky Section Headings</title>
+<style>
+  body { margin: 0; font: 16px/1.4 system-ui, sans-serif; }
+  .list {
+    max-width: 420px;
+    margin: 0 auto;
+    height: 60vh;
+    overflow: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+  }
+  .section {
+    padding-bottom: .5rem;
+  }
+  .section h3 {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    padding: .5rem .75rem;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #333;
+    z-index: 1;
+  }
+  .name { padding: .5rem .75rem; border-bottom: 1px dashed #f0f0f0; }
+</style>
+</head>
+<body>
+  <div class="list" role="list">
+    <div class="section">
+      <h3>A</h3>
+      <div class="name">Aaban</div>
+      <div class="name">Aabel</div>
+      <div class="name">Aabheer</div>
+      <div class="name">Aadam</div>
+    </div>
+    <div class="section">
+      <h3>B</h3>
+      <div class="name">Baabul</div>
+      <div class="name">Baalaji</div>
+      <div class="name">Baalkrishan</div>
+      <div class="name">Baanke Bihaari</div>
+    </div>
+    <div class="section">
+      <h3>C</h3>
+      <div class="name">Caddam</div>
+      <div class="name">Caden</div>
+      <div class="name">Cairo</div>
+      <div class="name">Caleb</div>
+    </div>
+  </div>
+</body>
+</html>

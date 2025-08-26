@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Polka Dot Pattern</title>
+<style>
+  :root {
+    --dot: #90caf9;
+    --bg: #e3f2fd;
+    --size: 28px;
+    --radius: 4px;
+  }
+
+  .polka {
+    min-height: 60vh;
+    display: grid;
+    place-items: center;
+    font: 700 24px system-ui, sans-serif;
+    color: #0d47a1;
+    /* two offset radial layers for a clean grid of dots */
+    background:
+      radial-gradient(circle var(--radius), var(--dot) 98%, transparent) 0 0 / var(--size) var(--size),
+      radial-gradient(circle var(--radius), var(--dot) 98%, transparent) calc(var(--size) / 2) calc(var(--size) / 2) / var(--size) var(--size),
+      var(--bg);
+  }
+</style>
+</head>
+<body>
+  <div class="polka">Polka Dots</div>
+</body>
+</html>

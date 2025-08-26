@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Scroll Snap</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; }
+  .scroller {
+    height: 70vh;
+    width: 320px;
+    margin: 24px auto;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+  }
+  .panel {
+    height: 60vh;
+    display: grid;
+    place-items: center;
+    scroll-snap-align: start;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .p1 { background: #7e57c2; }
+  .p2 { background: #42a5f5; }
+  .p3 { background: #26a69a; }
+  .p4 { background: #ef5350; }
+</style>
+</head>
+<body>
+  <div class="scroller">
+    <section class="panel p1">One</section>
+    <section class="panel p2">Two</section>
+    <section class="panel p3">Three</section>
+    <section class="panel p4">Four</section>
+  </div>
+</body>
+</html>

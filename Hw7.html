@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Fullscreen Styles</title>
+<style>
+  body { font-family: system-ui, sans-serif; }
+  .box {
+    width: min(640px, 90vw);
+    height: 300px;
+    margin: 24px auto;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    display: grid;
+    place-items: center;
+    background: #fafafa;
+    position: relative;
+    overflow: hidden;
+  }
+  .box p { margin: 0; font-size: 20px; }
+
+  .box:fullscreen {
+    background: radial-gradient(1200px 600px at 50% 0%, #1e88e5, #0d47a1 60%, #0a2c5f 100%);
+    color: #fff;
+  }
+  .box:fullscreen .cta {
+    background: rgba(255,255,255,.15);
+    border-color: rgba(255,255,255,.35);
+    color: #fff;
+  }
+
+  .cta {
+    position: absolute;
+    bottom: 16px; right: 16px;
+    border: 1px solid #cfd8dc;
+    background: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="box" id="fullscreenTarget" tabindex="0" aria-label="Fullscreen demo region">
+    <p>Click the button below to enter the element into fullscreen mode.</p>
+    <button class="cta" id="enter">Enter fullscreen</button>
+  </div>
+
+  <script>
+    const target = document.getElementById('fullscreenTarget');
+    document.getElementById('enter').addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) {
+          await target.requestFullscreen();
+          // Add an exit button while in fullscreen
+          document.getElementById('enter').textContent = 'Exit fullscreen';
+        } else {
+          await document.exitFullscreen();
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      const btn = document.getElementById('enter');
+      btn.textContent = document.fullscreenElement ? 'Exit fullscreen' : 'Enter fullscreen';
+    });
+  </script>
+</body>
+</html>

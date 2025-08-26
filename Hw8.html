@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Popout Menu</title>
+<style>
+  :root { --bg: #fff; --border: #e0e0e0; --accent: #673ab7; }
+  body { font-family: system-ui, sans-serif; padding: 24px; }
+
+  .menu {
+    position: relative;
+    display: inline-block;
+  }
+  .trigger {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg);
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .menu:focus-within .panel,
+  .menu:hover .panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 220px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    opacity: 0;
+    transform: translateY(6px) scale(.98);
+    transition: transform .16s ease, opacity .16s ease;
+    pointer-events: none;
+  }
+
+  .item {
+    display: block;
+    padding: 10px 10px;
+    border-radius: 8px;
+    color: #222;
+    text-decoration: none;
+  }
+  .item:hover,
+  .item:focus-visible {
+    background: rgba(103,58,183,.08);
+    outline: none;
+  }
+
+  /* nested popout (right) */
+  .submenu {
+    position: relative;
+  }
+  .submenu .submenu-panel {
+    position: absolute;
+    top: -8px;
+    left: calc(100% + 8px);
+    width: 200px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    opacity: 0;
+    transform: translateX(6px) scale(.98);
+    transition: transform .16s ease, opacity .16s ease;
+    pointer-events: none;
+  }
+  .submenu:focus-within .submenu-panel,
+  .submenu:hover .submenu-panel {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .caret { float: right; color: var(--accent); font-weight: 800; }
+</style>
+</head>
+<body>
+  <div class="menu">
+    <button class="trigger" aria-haspopup="menu" aria-expanded="false">Menu</button>
+    <div class="panel" role="menu">
+      <a class="item" href="#">Home</a>
+      <a class="item" href="#">Profile</a>
+      <div class="submenu">
+        <a class="item" href="#" aria-haspopup="menu">Settings <span class="caret">›</span></a>
+        <div class="submenu-panel" role="menu">
+          <a class="item" href="#">Privacy</a>
+          <a class="item" href="#">Notifications</a>
+          <a class="item" href="#">Security</a>
+        </div>
+      </div>
+      <a class="item" href="#">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
